@@ -1,16 +1,41 @@
+<!DOCTYPE html>
 <html>
     <head>
     <script src="script.js"></script>
     <link rel="stylesheet" href="style.css">
+    <title>Web App – Simple Interest Calculator</title>
     </head>
-    <body>
-        <h1>Simple Interest Calculator</h1>
-
-        Amount <input type="number"  id="principal">  <br/>
-        Rate <input type="number"  id="rate">  <br/>
-        No. of Years <input type="number"  id="years">  <br/>
-        Interest : <span id="result"></span><br>
-
-        <button onclick="compute()">Compute</button>
+    <body onload="populateInvestementDurationYearsDropdown()">
+		<div id="calculator-background">
+			<div id="form-container">
+				<div id="title-div">
+					<h1>Simple Interest Calculator</h1>
+				</div>
+				<div id="table-div">
+					 <div class="row">
+	      					<div class="col-25"> <label for="amount">Amount:</label></div>
+							<div class="col-75"> <input type="number" min="0" id="amount"></div>
+						</div>
+						<div class="row">
+							<div class="col-25"><label for="interest-rate">Interest Rate:</label></div>
+							<div class="col-75" id="interest-rate-div"><input type="range" min="1.0" max="20.0" value="1" step="0.5" id="interest-rate" onclick="updateInterestRateText()"><p id="interest-rate-text">2.5%</p></div>
+						</tr>
+						<div class="row">
+							<div class="col-25"><label for="investment-duration-years">Years:</label></div>
+							<div class="col-75"><select type="number" min="0" max="125" id="investment-duration-years">
+								  <option value="1">1</option>
+							</select></div>
+						</div>
+						<div class="row">
+							<div class="col-25">  <button onclick="compute()" class="myButton">Compute Interest</button></div>
+							<div class="col-75"></div>
+						</div>
+						<div class="row" id="interest-result"> &nbsp </div>
+				</div>
+			</div>
+			<div id="footer-div">
+				<p id="copyright-text">&copy Everyone Can Get Rich</p>
+			<div>
+		</div>
     </body>
 </html>
